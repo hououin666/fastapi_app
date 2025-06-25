@@ -23,11 +23,12 @@ class DatabaseHelper:
             session_factory=self.session_factory,
             scopefunc=current_task,
         )
+        return session
 
     async def session_dependency(self) -> AsyncSession:
-        async with self.session_factory() as session:
-            yield session
-            await session.close()
+        session = self.get_scoped_session()
+        yield session
+        await session.close()
 
 
 db_helper = DatabaseHelper(
