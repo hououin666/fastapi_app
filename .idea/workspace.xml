@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28f54956-03c2-4864-ac8f-f9f74589c225" name="Changes" comment="fix alembic to async">
-      <change afterPath="$PROJECT_DIR$/alembic/versions/2025_06_25_2012-1006883b8985_create_tables_products_and_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/core/models/post.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e686131-d833-4c45-a15f-791fcdbf800f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e686131-d833-4c45-a15f-791fcdbf800f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic.ini" beforeDir="false" afterPath="$PROJECT_DIR$/alembic.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/README" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/README" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/alembic/env.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/alembic/versions/2025_06_25_1940-eddc507f795a_create_products_table.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/db_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/db_helper.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +118,7 @@
       <workItem from="1750688690052" duration="1538000" />
       <workItem from="1750784166612" duration="3826000" />
       <workItem from="1750799336973" duration="7704000" />
-      <workItem from="1750835789909" duration="7692000" />
+      <workItem from="1750835789909" duration="8313000" />
     </task>
     <task id="LOCAL-00001" summary="дошел до alembic">
       <option name="closed" value="true" />
@@ -142,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750869988006</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix alembic to async">
+      <option name="closed" value="true" />
+      <created>1750871600286</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1750871600286</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
