@@ -31,6 +31,3 @@ class Movie(BaseModel):
 @router.get('', response_model=List[Movie])
 async def movies():
     return fake_movie_db
-
-async def lalala():
-    print(lalala)
