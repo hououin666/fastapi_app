@@ -57,24 +57,32 @@ async def get_users_with_posts(session: AsyncSession):
         for post in user.posts:
             print('-', post)
 
+async def main_relations(session: AsyncSession):
+    # await create_user(session=session, username="redlikeroses")
+    # await create_user(session=session, username='bob')
+    user_redlikeroses = await get_user_by_username(session=session, username='redlikeroses')
+    user_bob = await get_user_by_username(session=session, username='bob')
+    # await create_user_profile(session=session, user_id=user_redlikeroses.id, first_name='lala', last_name='haha')
+    # await create_user_profile(session=session, user_id=user_bob.id,first_name='bob', last_name='bob')\
+    await show_users_with_profiles(session)
+    # await create_posts(session,user_redlikeroses.id,'FastAPI intro', 'FastAPI advanced', 'FastAPI more')
+    # await create_posts(session, user_bob.id, 'SQLA 2.0', 'SQLA Joins')
+    await get_users_with_posts(session=session)
 
-# async def main():
-#     async with db_helper.session_factory() as session:
-#         # await create_user(session=session, username="redlikeroses")
-#         # await create_user(session=session, username='bob')
-#         user_redlikeroses = await get_user_by_username(session=session, username='redlikeroses')
-#         user_bob = await get_user_by_username(session=session, username='bob')
-#         # await create_user_profile(session=session, user_id=user_redlikeroses.id, first_name='lala', last_name='haha')
-#         # await create_user_profile(session=session, user_id=user_bob.id,first_name='bob', last_name='bob')\
-#         await show_users_with_profiles(session)
-#         # await create_posts(session,user_redlikeroses.id,'FastAPI intro', 'FastAPI advanced', 'FastAPI more')
-#         # await create_posts(session, user_bob.id, 'SQLA 2.0', 'SQLA Joins')
-#         await get_users_with_posts(session=session)
-#
-#
-#
-#
-#
-#
-# if __name__ == '__main__':
-#     asyncio.run(main())
+
+async def demo_m2m(session: AsyncSession):
+    pass
+
+
+async def main():
+    async with db_helper.session_factory() as session:
+        # await main_relations(session)
+        await demo_m2m(session)
+
+
+
+
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
