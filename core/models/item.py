@@ -15,4 +15,4 @@ class Item(Base):
     name: Mapped[str]
     description: Mapped[str]
     price: Mapped[int]
-    orders: Mapped[list['Order']] = relationship(secondary='order_product_association', back_populates='items')
+    orders: Mapped[list['Order']] = relationship(secondary='order_product_association', back_populates='products')

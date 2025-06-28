@@ -3,10 +3,10 @@ import asyncio
 from fastapi import APIRouter
 from sqlalchemy import select, Result
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, selectinload
 
 from core import db_helper
-from core.models import User, Profile, Post
+from core.models import User, Profile, Post, Order, Item
 
 
 async def create_user(session: AsyncSession, username: str) -> User:
@@ -70,8 +70,41 @@ async def main_relations(session: AsyncSession):
     await get_users_with_posts(session=session)
 
 
+async def create_order(session: AsyncSession, promocode: str | None = None) -> Order:
+    order = Order(promocode=promocode)
+    session.add(order)
+    await session.commit()
+    return order
+
+
+async def create_product(session: AsyncSession, name: str, description: str, price: int) -> Item:
+    product = Item(
+        name=name,
+        description=description,
+        price=price,
+    )
+    session.add(product)
+    await session.commit()
+    return product
+
+
+
 async def demo_m2m(session: AsyncSession):
-    pass
+    order_one = await create_order(session)
+    order_promo = await create_order(session, promocode='promo')
+
+    mouse = await create_product(session,'Mouse', 'Great gaming mouse', 123)
+    keyboard = await create_product(session, 'Keyboard', 'Great gaming keyboard', 149)
+    display = await create_product(session, 'Display', 'Office display', 299)
+
+    order_one = await session.scalar(select(Order).where(Order.id == order_one.id).options(selectinload(Order.products)).order_by(Order.id))
+    order_promo = await session.scalar(select(Order).where(Order.id == order_promo.id).options(selectinload(Order.products)).order_by(Order.id))
+
+    order_one.products.append(mouse)
+    order_one.products.append(keyboard)
+    order_promo.products.append(keyboard)
+    order_promo.products.append(display)
+    await session.commit()
 
 
 async def main():
