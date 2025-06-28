@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28f54956-03c2-4864-ac8f-f9f74589c225" name="Changes" comment="create profile table">
-      <change afterPath="$PROJECT_DIR$/api_v1/users/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api_v1/users/schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud.py" afterDir="false" />
+    <list default="true" id="28f54956-03c2-4864-ac8f-f9f74589c225" name="Changes" comment="crud with order_product_association">
+      <change afterPath="$PROJECT_DIR$/api_v1/profiles/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api_v1/profiles/schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api_v1/users/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/8e686131-d833-4c45-a15f-791fcdbf800f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/8e686131-d833-4c45-a15f-791fcdbf800f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/post.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/post.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/item.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/item.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/order.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/order.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/models/order_product_association.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/models/order_product_association.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,29 +57,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "FastAPI.fastApiProject.executor": "Run",
-    "HTTP Request.All in test_main.executor": "Run",
-    "Python.crud (1).executor": "Run",
-    "Python.crud.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ShowUsagesActions.previewPropertyKey": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/redlikeroses/PycharmProjects/fastApiProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;FastAPI.fastApiProject.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in test_main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.crud (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.crud.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ShowUsagesActions.previewPropertyKey&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/redlikeroses/PycharmProjects/fastApiProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\redlikeroses\PycharmProjects\fastApiProject" />
+      <recent name="C:\Users\redlikeroses\PycharmProjects\fastApiProject\api_v1\users" />
       <recent name="C:\Users\redlikeroses\PycharmProjects\fastApiProject\app" />
     </key>
   </component>
@@ -100,6 +103,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/crud.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="crud (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApiProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api_v1/users" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/api_v1/users/crud.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,6 +157,52 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="crud" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApiProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/api_v1/users" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\redlikeroses\PycharmProjects\fastApiProject\crud.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="crud" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fastApiProject" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\redlikeroses\PycharmProjects\fastApiProject\api_v1\users\crud.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="fastApiProject" type="Python.FastAPI">
       <option name="file" value="$PROJECT_DIR$/app/main.py" />
       <module name="fastApiProject" />
@@ -150,11 +222,12 @@
     <list>
       <item itemvalue="FastAPI.fastApiProject" />
       <item itemvalue="HTTP Request.All in test_main" />
-      <item itemvalue="Python.crud" />
       <item itemvalue="Python.crud (1)" />
+      <item itemvalue="Python.crud" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.crud (1)" />
         <item itemvalue="Python.crud (1)" />
         <item itemvalue="Python.crud" />
         <item itemvalue="HTTP Request.All in test_main" />
@@ -194,7 +267,12 @@
       <workItem from="1750917627362" duration="4278000" />
       <workItem from="1750943416518" duration="670000" />
       <workItem from="1750952716123" duration="2078000" />
-      <workItem from="1750967360786" duration="707000" />
+      <workItem from="1750967360786" duration="2078000" />
+      <workItem from="1751056141063" duration="2000" />
+      <workItem from="1751056164251" duration="4813000" />
+      <workItem from="1751107356121" duration="5600000" />
+      <workItem from="1751115192007" duration="5316000" />
+      <workItem from="1751128688824" duration="3119000" />
     </task>
     <task id="LOCAL-00001" summary="дошел до alembic">
       <option name="closed" value="true" />
@@ -268,7 +346,71 @@
       <option name="project" value="LOCAL" />
       <updated>1750919400835</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="crud for users">
+      <option name="closed" value="true" />
+      <created>1750968198648</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750968198648</updated>
+    </task>
+    <task id="LOCAL-00011">
+      <option name="closed" value="true" />
+      <created>1751107520322</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1751107520322</updated>
+    </task>
+    <task id="LOCAL-00012" summary="create orders table">
+      <option name="closed" value="true" />
+      <created>1751107595934</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1751107595934</updated>
+    </task>
+    <task id="LOCAL-00013" summary="alembic upgrade orders table">
+      <option name="closed" value="true" />
+      <created>1751107620849</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1751107620849</updated>
+    </task>
+    <task id="LOCAL-00014" summary="create order_product_association table">
+      <option name="closed" value="true" />
+      <created>1751107643124</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1751107643124</updated>
+    </task>
+    <task id="LOCAL-00015" summary="alembic upgrade order_association table">
+      <option name="closed" value="true" />
+      <created>1751107659636</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1751107659636</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update to orm order_product_association">
+      <option name="closed" value="true" />
+      <created>1751110239405</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1751110239405</updated>
+    </task>
+    <task id="LOCAL-00017" summary="crud with order_product_association">
+      <option name="closed" value="true" />
+      <created>1751116053892</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1751116053892</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,11 +448,19 @@
     <MESSAGE value="check gpg keys working" />
     <MESSAGE value="check gpg keys working2" />
     <MESSAGE value="create profile table" />
-    <option name="LAST_COMMIT_MESSAGE" value="create profile table" />
+    <MESSAGE value="crud for users" />
+    <MESSAGE value="change crud for test m2m sqlalchemy" />
+    <MESSAGE value="create orders table" />
+    <MESSAGE value="alembic upgrade orders table" />
+    <MESSAGE value="create order_product_association table" />
+    <MESSAGE value="alembic upgrade order_association table" />
+    <MESSAGE value="update to orm order_product_association" />
+    <MESSAGE value="crud with order_product_association" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud with order_product_association" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/fastApiProject$crud.coverage" NAME="crud Coverage Results" MODIFIED="1750920592394" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/api_v1/users" />
     <SUITE FILE_PATH="coverage/fastApiProject$fastApiProject.coverage" NAME="fastApiProject Coverage Results" MODIFIED="1750880555794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/fastApiProject$crud__1_.coverage" NAME="crud (1) Coverage Results" MODIFIED="1750968050133" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/fastApiProject$crud__1_.coverage" NAME="crud (1) Coverage Results" MODIFIED="1751132317218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

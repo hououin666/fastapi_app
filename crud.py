@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import joinedload, selectinload
 
 from core import db_helper
-from core.models import User, Profile, Post, Order, Item
+from core.models import User, Profile, Post, Order, Item, OrderProductAssociation
 
 
 async def create_user(session: AsyncSession, username: str) -> User:
@@ -88,23 +88,60 @@ async def create_product(session: AsyncSession, name: str, description: str, pri
     return product
 
 
-
-async def demo_m2m(session: AsyncSession):
+async def create_orders_and_products(session: AsyncSession):
     order_one = await create_order(session)
     order_promo = await create_order(session, promocode='promo')
 
-    mouse = await create_product(session,'Mouse', 'Great gaming mouse', 123)
+    mouse = await create_product(session, 'Mouse', 'Great gaming mouse', 123)
     keyboard = await create_product(session, 'Keyboard', 'Great gaming keyboard', 149)
     display = await create_product(session, 'Display', 'Office display', 299)
 
-    order_one = await session.scalar(select(Order).where(Order.id == order_one.id).options(selectinload(Order.products)).order_by(Order.id))
-    order_promo = await session.scalar(select(Order).where(Order.id == order_promo.id).options(selectinload(Order.products)).order_by(Order.id))
+    order_one = await session.scalar(
+        select(Order).where(Order.id == order_one.id).options(selectinload(Order.products)).order_by(Order.id))
+    order_promo = await session.scalar(
+        select(Order).where(Order.id == order_promo.id).options(selectinload(Order.products)).order_by(Order.id))
 
     order_one.products.append(mouse)
     order_one.products.append(keyboard)
     order_promo.products.append(keyboard)
     order_promo.products.append(display)
+
     await session.commit()
+
+
+async def get_orders_with_products(session: AsyncSession) -> list[Order]:
+    stmt = (select(Order).options(selectinload(Order.products)).order_by(Order.id))
+    orders = await session.scalars(stmt)
+    return list(orders)
+
+
+async def demo_get_orders_with_products_through_secondary(session: AsyncSession):
+    orders = await get_orders_with_products(session)
+    for order in orders:
+        print(order.id, order.promocode, order.created_at, 'products:')
+        for product in order.products:
+            print('-', product.id, product.name, product.price)
+
+
+async def get_orders_with_products_assoc(session: AsyncSession) -> list[Order]:
+    stmt = (select(Order).options(selectinload(Order.products_details).joinedload(OrderProductAssociation.product)).order_by(Order.id))
+    orders = await session.scalars(stmt)
+    return list(orders)
+
+
+async def demo_get_orders_with_products_with_assoc(session: AsyncSession):
+    orders = await get_orders_with_products_assoc(session)
+    for order in orders:
+        print(order.id, order.promocode, order.created_at, 'products:')
+        for order_product_detail in order.products_details:
+            print('-', order_product_detail.product.id, order_product_detail.product.name, order_product_detail.product.price)
+
+
+async def demo_m2m(session: AsyncSession):
+    # await create_orders_and_products(session)
+    # await demo_get_orders_with_products_through_secondary(session)
+    await demo_get_orders_with_products_with_assoc(session)
+
 
 
 async def main():
