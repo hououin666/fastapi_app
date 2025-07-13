@@ -108,3 +108,7 @@ def demo_auth_check_cookie(
     username = user_session_data['username']
     return {'result': f'Hi, {username}',
             **user_session_data}
+
+
+
+

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr, ConfigDict
 
 
 class UserBase(BaseModel):
@@ -19,4 +19,14 @@ class UserUpdatePartial(UserBase):
 
 class User(UserBase):
     id: int
+
+
+class UserSchema(BaseModel):
+    model_config = ConfigDict(strict=True)
+
+    username: str
+    password: bytes
+    email: EmailStr | None = None
+    active: bool = True
+
 
